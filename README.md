@@ -40,4 +40,7 @@ Limitations
 
 Disclaimer
 ----------
-This circuit is a basic example designed for easy understanding and demonstration purposes only. It may not be suitable for practical use, and the calculated time may vary depending on the specific conditions and components used. It is the responsibility of the user to ensure the safety and efficiency of the circuit design.
+This circuit is a basic example designed for easy understanding and demonstration purposes only. It may not be suitable for practical use, and the calculated time may vary depending on the specific conditions and components used. It is the responsibility of the user to ensure the safety and efficiency of the circuit design.It's important to note that the circuit design you provided is for demonstration purposes only and not suitable for precise applications due to component limitations and variations.
+
+For a precise and efficient circuit design, it's crucial to select components with the appropriate specifications and ratings, such as transistors/MOSFETs, diodes, and resistors, that can handle the required current and voltage levels without overheating or failing. Additionally, using a dedicated IC for charging supercapacitors can improve accuracy and efficiency.
+
