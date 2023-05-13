@@ -1,3 +1,7 @@
+//Drive link for circuit diagram/waveform:
+https://drive.google.com/drive/folders/1iCN0GKb3oo2kcUu5ph-48V0i7qyQImFd?usp=sharing
+//
+
 //* A precise and efficient circuit can be built with neccessary specifications.
 This circuit is not precise and is basic for easy understanding and the measured values can vary based
 on the conditions and it is demonstrated only for the purpose of this questions and due lack of required
@@ -86,3 +90,11 @@ a slope can observed in the expected waveform.
 As the graph says there should be voltage ramp up which should be fairly linear when we solve for the equation.
 Rate of change of voltage starts to level because the clamp(diodes) starts to draw some of the current that was going into the supercapacitor. 
 This part of the graph will not be linear as it flattens out. 	
+
+/*
+//Drive link for circuit diagram/waveform:
+
+https://drive.google.com/drive/folders/1iCN0GKb3oo2kcUu5ph-48V0i7qyQImFd?usp=sharing
+
+*/
+//
