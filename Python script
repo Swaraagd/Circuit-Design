@@ -11,8 +11,8 @@ CIRCUIT_FILE = 'path/to/circuit.asc'
 input_voltage = 3.0
 input_current = 10.0
 charging_current = 5.0
-supercapacitor_capacitance = 100.0e-6
-supercapacitor_voltage = 2.7
+supercap_capacitance = 100.0e-6
+supercap_voltage = 2.7
 
 # Define the LTSpice netlist commands
 netlist_commands = f"""
@@ -26,7 +26,7 @@ Dlimit limit out D2 # Define the second limit diode
 Dlimit limit out D3 # Define the third limit diode
 Q1 out base limit 2N3904 # Define the transistor with the specified parameters and connections
 .model D D # Define the default diode model
-.model Q2N3904 NPN(Is=6.734f Xti=3 Eg=1.11 Vaf=100 Bf=416.4 Ne=1.5 Ise=6.734f Ikf=120m Xtb=1.5 Br=4.164 Nc=2 Isc=0 Ikr=0 Rc=1.5 Cjc=2.5p Mjc=0.33 Vjc=7.2 Fc=0.5 Cje=4p Mje=0.33 Vje=7.2 Tr=200n Tf=300p Itf=1 Xtf=2) # Define the NPN transistor model with the specified parameters
+.model Q2N3904 NPN # Define the NPN transistor model with the specified parameters
 """
 
 # Create the LTSpice netlist file
