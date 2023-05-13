@@ -1,0 +1,84 @@
+//* A precise and efficient circuit can be built with neccessary specifications.
+This circuit is not precise and is basic for easy understanding and the measured values can vary based
+on the conditions and it is demonstrated only for the purpose of this questions and due lack of required
+library required to run the circuit simulation on LTspice *//
+
+Supercapacitor charging circuit based on transistors/MOSFETs, with the following constraints,
+
+1. Input specifications: 3V 10A
+
+2. Charging current = 5A
+
+3. Supercapacitor detalls: 100F, 2.7V rated.
+
+
+this here is a simple supercapacitor charging circuit designed and built around 2N3904 NPN transistor, 
+50 mA constant current will be used through supercapacitor(100F,2.7V) as we charge it.
+Benefit of using constant current is the voltage will ramp up at a linear rate and will have a predictable charge time which can be verified.
+Voltage rating on supercapacitor(2.7V) cannot  exceed as it might result in explosion of the particular circuit.
+
+Circuit Working:
+
+In this circuit , 3 Switching Diodes IN4148 are connected in series which gives a voltage drop of 2.V-2.5V at 50A , 
+this will ensure that the voltage across the supercapacitor never exceeds the maximum rating .Supercapacitor acts as a local reservoir of charge.
+
+To set current , a constant voltage on the base of NPN transistor is applied through 1K Ohm Potentiometer and is also connected with a 
+filter using a capacitor with 0.1uF to keep it stable. 
+Potentiometer which is used sets the Base Voltage for NPN transistor 
+Capacitor is connected to base to act as a filter.
+Value of voltage measured at emitter resistor is 1.65V.
+Value of voltage measured at the clamp(diodes) is 2.5V, which is used in the formula.
+
+For a manual verification i.e on circuit board this will be measured without the supercapacitor.
+
+Once the Supercapacitor(100F) is connected in the circuit ,time is measured to reach 2.45V(charging).
+As the graph says there should be voltage ramp up which should be fairly linear when we solve for the equation.
+Rate of change of voltage starts to level because the clamp(diodes) starts to draw some of the current that was going into the supercapacitor.
+This part of the graph will not be linear as it flattens out.
+The necessary calculation for the estimated time to charge the supercapacitor is show below:
+
+In this circuit potentiometer will be adjusted until we get 1.65V at the emitter
+
+1.65V / 33 Ohm = 50mA
+
+As long as we have 1.65V at the emitter resistor (Re) we will have 50mA in the emitter most of that will be collector current(Ic) ,
+base current (Ib) will be insignificant
+
+If we rework the equation;
+
+  I = C* (dv/dt)
+
+	C = 100F, 2.7V
+	dv- change in voltage = 2.45V
+	I = 50mA
+
+==> dt = (C) * (dv) / dt
+    dt = (100F)*(2.45V) / 0.05A
+
+    dt = 4900 seconds = 82 mins 
+
+//
+Similarly, for example if a supercapacitor of value 10F,2.7V for the same design and calculations ,time taken to charge is close to 8.2 mins.
+//
+
+//* A precise and efficient circuit can be built with neccessary specifications.
+This circuit is not precise and is basic for easy understanding and the measured values can vary based on the conditions and it is
+demonstrated only for the purpose of this questions and due lack of required library required to run the circuit simulation on LTspice *//
+
+//
+The 2N3904 transistor and the 1N4148 diodes in this example will not be sufficient for a precise circuit ,
+you will need to select components that can safely pass the larger current, you will need to sink a constant charge current . 
+The resistor in the emitter leg will also need to be changed to a lower value with a higher power rating.
+Also capacitor will have some leakage that may discharge battery over time.
+
+
+//
+ 
+Waveform:
+
+This is the generic characteristic curve of transistor, if you vary collector voltage which happens concurrently
+when the supercapacitor charges and collector current also varies a little bit ,
+a slope can observed in the expected waveform.
+As the graph says there should be voltage ramp up which should be fairly linear when we solve for the equation.
+Rate of change of voltage starts to level because the clamp(diodes) starts to draw some of the current that was going into the supercapacitor. 
+This part of the graph will not be linear as it flattens out. 	
