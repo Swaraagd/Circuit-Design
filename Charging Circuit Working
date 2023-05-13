@@ -22,6 +22,10 @@ Circuit Working:
 In this circuit , 3 Switching Diodes IN4148 are connected in series which gives a voltage drop of 2.V-2.5V at 50A , 
 this will ensure that the voltage across the supercapacitor never exceeds the maximum rating .Supercapacitor acts as a local reservoir of charge.
 
+Energy Stored: 
+	E = (1/2) * (100F)*(2.7V)
+	E = 365 J or Joules
+
 To set current , a constant voltage on the base of NPN transistor is applied through 1K Ohm Potentiometer and is also connected with a 
 filter using a capacitor with 0.1uF to keep it stable. 
 Potentiometer which is used sets the Base Voltage for NPN transistor 
@@ -46,16 +50,16 @@ base current (Ib) will be insignificant
 
 If we rework the equation;
 
-  I = C* (dv/dt)
+ 	I = C* (dv/dt)
 
 	C = 100F, 2.7V
 	dv- change in voltage = 2.45V
 	I = 50mA
 
-==> dt = (C) * (dv) / dt
-    dt = (100F)*(2.45V) / 0.05A
+====> 	dt = (C) * (dv) / dt
+    	dt = (100F)*(2.45V) / 0.05A
 
-    dt = 4900 seconds = 82 mins 
+   	dt = 4900 seconds = 82 mins 
 
 //
 Similarly, for example if a supercapacitor of value 10F,2.7V for the same design and calculations ,time taken to charge is close to 8.2 mins.
