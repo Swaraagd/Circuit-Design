@@ -1,0 +1,43 @@
+import os # import the os module to interact with the operating system
+import subprocess # import the subprocess module to run the LTSpice executable
+
+# Define the LTSpice executable path
+LTSPICE_EXECUTABLE = 'C:/Program Files/LTC/LTspiceXVII/XVIIx64.exe'
+
+# Define the path to the LTSpice circuit file
+CIRCUIT_FILE = 'path/to/circuit.asc'
+
+# Define the simulation parameters
+input_voltage = 3.0
+input_current = 10.0
+charging_current = 5.0
+supercapacitor_capacitance = 100.0e-6
+supercapacitor_voltage = 2.7
+
+# Define the LTSpice netlist commands
+netlist_commands = f"""
+Vinput in 0 DC {input_voltage} AC 0 # Define the input voltage source with the specified voltage
+Rload out 0 0.1 # Define the load resistor
+Rbase in base 10k # Define the base resistor
+Rlimit base limit 1k # Define the limit resistor
+Cbase base 0 0.1u # Define the base capacitor
+Dlimit limit out D1 # Define the first limit diode
+Dlimit limit out D2 # Define the second limit diode
+Dlimit limit out D3 # Define the third limit diode
+Q1 out base limit 2N3904 # Define the transistor with the specified parameters and connections
+.model D D # Define the default diode model
+.model Q2N3904 NPN(Is=6.734f Xti=3 Eg=1.11 Vaf=100 Bf=416.4 Ne=1.5 Ise=6.734f Ikf=120m Xtb=1.5 Br=4.164 Nc=2 Isc=0 Ikr=0 Rc=1.5 Cjc=2.5p Mjc=0.33 Vjc=7.2 Fc=0.5 Cje=4p Mje=0.33 Vje=7.2 Tr=200n Tf=300p Itf=1 Xtf=2) # Define the NPN transistor model with the specified parameters
+"""
+
+# Create the LTSpice netlist file
+with open(CIRCUIT_FILE, 'w') as f: # Open the circuit file for writing
+    f.write(netlist_commands) # Write the netlist commands to the file
+
+# Define the LTSpice command
+ltspice_command = [LTSPICE_EXECUTABLE, "-b", CIRCUIT_FILE] # Create a list with the LTSpice executable path, the "-b" flag to run in batch mode, and the circuit file path
+
+# Run the simulation using subprocess
+result = subprocess.run(ltspice_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE) # Run the LTSpice executable with the specified command and capture the stdout and stderr outputs
+
+# Print the result of the simulation
+print(result.stdout.decode()) # Decode the stdout output and print it to the console
